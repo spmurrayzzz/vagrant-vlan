@@ -30,7 +30,7 @@ module VagrantPlugins
             interfaces = Set.new
             entries = []
             vlans.each do |vlan|
-              vlan[:interface] = "#{vlan[:parent]}.#{vlan[:vlan]}" 
+              vlan[:interface] = "vlan#{vlan[:vlan]}" 
               interfaces.add(vlan[:interface])
               entry = TemplateRenderer.render(File.join(File.dirname(__FILE__), "vlan"),
                                               :options => vlan)
